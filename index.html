@@ -10,6 +10,7 @@
 <script src="../resources/jquery.easing.js"></script>
 <script src="../resources/jquery-ui.min.js"></script>
 <script src="../resources/skrollr.min.js"></script>
+<link rel="shortcut icon" href="#">
 <link href="../resources/mars.css" rel="stylesheet"/>
     <style>
        #mars{
@@ -104,6 +105,14 @@
             h1{
                 top: 150px;
             }
+            #screen3 .info{
+                width: 100%;
+                top: 20%;
+                bottom: 50%;
+            }
+            #viking{
+                top: 55%;
+            }
         }
     </style>
 </head>
@@ -179,21 +188,21 @@
     </section>
 </div>
 <script>
-    var s =skrollr.init(
+    var s =skrollr.init();
+        /*
         {mobileCheck: function(){
             return false;
-        }} );
+        }} );*/
+        if(s.isMobile()) {
+            s.destroy();
+        }
     if (window.matchMedia('(max-width: 600px)').matches){
         $('h1').delay(300).animate({letterSpacing: '.2em'}, 2000, 'easeOutQuart');
-    } else {
-        $('h1').delay(300).animate({letterSpacing: '1em'}, 2000, 'easeOutQuart');
-    }
-    if (window.matchMedia('(max-width: 600px)').matches){
         $('#mars').animate({top:'250px'}, 2000, 'easeOutCubic');
     } else {
+        $('h1').delay(300).animate({letterSpacing: '1em'}, 2000, 'easeOutQuart');
         $('#mars').animate({top:'200px'}, 2000, 'easeOutCubic');
     }
-    
     $('#shine').delay(1300).animate({width:'900px', marginLeft:'-450px', opacity:1}, 200, 'easeInOutSine');
     $('#sun').animate({opacity:1}, 100);
     $('nav li').click(function(){
