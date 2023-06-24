@@ -94,6 +94,17 @@
            cursor: pointer;
        }
        nav li.active{background: #fff;}
+       @media screen and (max-width: 600px) {
+            #shine{
+                top: 40px;
+            }
+            #sun{
+                top: 150px;
+            }
+            h1{
+                top: 150px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -172,8 +183,17 @@
         {mobileCheck: function(){
             return false;
         }} );
-    $('h1').delay(300).animate({letterSpacing: '1em'}, 2000, 'easeOutQuart');
-    $('#mars').animate({top:'200px'}, 2000, 'easeOutCubic');
+    if (window.matchMedia('(max-width: 600px)').matches){
+        $('h1').delay(300).animate({letterSpacing: '.2em'}, 2000, 'easeOutQuart');
+    } else {
+        $('h1').delay(300).animate({letterSpacing: '1em'}, 2000, 'easeOutQuart');
+    }
+    if (window.matchMedia('(max-width: 600px)').matches){
+        $('#mars').animate({top:'250px'}, 2000, 'easeOutCubic');
+    } else {
+        $('#mars').animate({top:'200px'}, 2000, 'easeOutCubic');
+    }
+    
     $('#shine').delay(1300).animate({width:'900px', marginLeft:'-450px', opacity:1}, 200, 'easeInOutSine');
     $('#sun').animate({opacity:1}, 100);
     $('nav li').click(function(){
