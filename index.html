@@ -95,6 +95,7 @@
            cursor: pointer;
        }
        nav li.active{background: #fff;}
+       /*Phones*/
        @media screen and (max-width: 600px) {
             #shine{
                 top: 40px;
@@ -109,6 +110,7 @@
                 width: 100%;
                 top: 20%;
                 bottom: 50%;
+                padding: 2em;
             }
             #viking{
                 top: 55%;
@@ -117,11 +119,19 @@
                 width: 100%;
                 top: 20%;
                 bottom: 50%;
+                padding: 2em;
             }
             #opportunity{
                 top: 55%;
             }
         }
+        /*Tablets*/
+        @media (min-width: 601px) and (max-width: 900px) {
+            #viking{
+                top: 55%;
+            }
+        }
+        /*Small Phones*/
     </style>
 </head>
 <body>
@@ -197,18 +207,14 @@
 </div>
 <script>
     var s =skrollr.init();
-        /*
-        {mobileCheck: function(){
-            return false;
-        }} );*/
-        if(s.isMobile()) {
-            s.destroy();
-        }
+    if (s.isMobile()) {
+        s.destroy();
+    }
     if (window.matchMedia('(max-width: 600px)').matches){
-        $('h1').delay(300).animate({letterSpacing: '.2em'}, 2000, 'easeOutQuart');
+        $('h1').delay(300).animate({letterSpacing: '.1em'}, 2000, 'easeOutQuart');
         $('#mars').animate({top:'250px'}, 2000, 'easeOutCubic');
     } else {
-        $('h1').delay(300).animate({letterSpacing: '1em'}, 2000, 'easeOutQuart');
+        $('h1').delay(300).animate({letterSpacing: '.5em'}, 2000, 'easeOutQuart');
         $('#mars').animate({top:'200px'}, 2000, 'easeOutCubic');
     }
     $('#shine').delay(1300).animate({width:'900px', marginLeft:'-450px', opacity:1}, 200, 'easeInOutSine');
